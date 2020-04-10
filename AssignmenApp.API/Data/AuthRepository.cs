@@ -19,6 +19,7 @@ namespace AssignmenApp.API.Data
      public async Task<User> Register(User user)
     {
 
+        
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
 
@@ -26,7 +27,7 @@ namespace AssignmenApp.API.Data
     }
          public async Task<User> Login(string username, string password)
     {
-        var user = await _context.Users.Include(p=> p.Email).FirstOrDefaultAsync( x => x.UserName == username);
+        var user = await _context.Users.FirstOrDefaultAsync( x => x.UserName == username);
 
         if (user == null)
         return  null;
