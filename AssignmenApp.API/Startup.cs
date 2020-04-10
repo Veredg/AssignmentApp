@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AssignmenApp.API.Data;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,9 @@ namespace AssignmenApp.API
             services.AddControllers();
             services.AddDbContext<DataContext>(d => d.UseSqlite(Configuration.GetConnectionString("DefConnection")));
             services.AddCors();
+            services.AddAutoMapper(typeof(AuthRepository).Assembly);
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
