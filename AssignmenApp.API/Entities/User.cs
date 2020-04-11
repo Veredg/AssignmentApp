@@ -18,6 +18,6 @@ namespace AssignmenApp.API.Entities
       public Gender Gender { get; set; }
       public string Address { get; set; }
       public string City { get; set; }
-      public ICollection<Task> Tasks { get; set; }
+      public ICollection<MyTask> Tasks { get; set; }
     }
 }

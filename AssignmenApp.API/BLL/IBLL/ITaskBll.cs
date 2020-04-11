@@ -15,4 +15,3 @@ namespace AssignmenApp.API.BLL.IBLL
 
     }
     }
-}
