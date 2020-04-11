@@ -11,7 +11,10 @@ namespace AssignmenApp.API.Helpers
             CreateMap<User, UserForRegisterDto>();
             CreateMap<UserForRegisterDto, User>();
             CreateMap<UserForLoginDto, User>();
-            CreateMap<Task, TaskForUserDto>();
+            CreateMap<MyTask, TaskForUserDto>();
+            CreateMap<TaskForUserDto, MyTask>();
+            CreateMap<TaskForUpdateDto, MyTask>();
+
         }
     }
 }

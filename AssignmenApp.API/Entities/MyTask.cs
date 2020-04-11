@@ -3,7 +3,7 @@ using AssignmenApp.API.Enums;
 
 namespace AssignmenApp.API.Entities
 {
-    public class Task
+    public class MyTask
     {
         public int Id { get; set; }
         public string TaskName { get; set; }

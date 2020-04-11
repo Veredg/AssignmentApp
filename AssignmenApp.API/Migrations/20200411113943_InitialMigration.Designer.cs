@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssignmenApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200410090702_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200411113943_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace AssignmenApp.API.Migrations
                     b.Property<string>("TaskName")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -85,9 +85,11 @@ namespace AssignmenApp.API.Migrations
 
             modelBuilder.Entity("AssignmenApp.API.Entities.Task", b =>
                 {
-                    b.HasOne("AssignmenApp.API.Entities.User", null)
+                    b.HasOne("AssignmenApp.API.Entities.User", "User")
                         .WithMany("Tasks")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
